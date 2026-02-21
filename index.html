@@ -1,39 +1,108 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Joyeux anniversaire Arno </title>
+<meta charset="UTF-8" />
+<title>Joyeux anniversaire Arno </title>
 
-  <style>
-    body {
-      margin: 0;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
-      font-family: Arial, sans-serif;
-      text-align: center;
-      color: white;
-    }
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", sans-serif;
+  background: linear-gradient(135deg, #ff758c, #ffb199);
+  overflow: hidden;
+}
 
-    .message {
-      background: rgba(255, 255, 255, 0.2);
-      padding: 40px;
-      border-radius: 25px;
-      font-size: 1.8em;
-      line-height: 1.6;
-      backdrop-filter: blur(8px);
-    }
-  </style>
+/* Carte centrale */
+.card {
+  background: rgba(255,255,255,0.9);
+  padding: 50px;
+  border-radius: 30px;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+  animation: fadeIn 2s ease;
+  max-width: 500px;
+}
+
+h1 {
+  font-size: 2.3em;
+  margin-bottom: 20px;
+  color: #ff4d6d;
+}
+
+p {
+  font-size: 1.3em;
+  color: #444;
+  line-height: 1.6;
+}
+
+/* bouton */
+button {
+  margin-top: 25px;
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 12px;
+  background: #ff4d6d;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* animation apparition */
+@keyframes fadeIn {
+  from {opacity:0; transform: translateY(20px);}
+  to {opacity:1; transform: translateY(0);}
+}
+
+/* cœurs flottants */
+.heart {
+  position: absolute;
+  color: rgba(255,255,255,0.7);
+  font-size: 20px;
+  animation: float 6s linear infinite;
+}
+
+@keyframes float {
+  from {transform: translateY(100vh);}
+  to {transform: translateY(-10vh);}
+}
+</style>
 </head>
 
 <body>
-  <div class="message">
-    Joyeux anniversaire Arno ! <br><br>
-    À tes 20 ans ! <br><br>
-    Je t'aime énormément. <br>
+
+<div class="card">
+  <h1>🎉 Joyeux anniversaire Arno !</h1>
+  <p>
+    À tes 20 ans !<br><br>
+    Je t'aime énormément.<br>
     Plein de bisous
-  </div>
+  </p>
+
+    Clique pour une surprise
+  </button>
+</div>
+
+<script>
+/* génération de petits cœurs */
+for(let i=0;i<25;i++){
+  let heart = document.createElement("div");
+  heart.innerHTML = "❤";
+  heart.className = "heart";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (15+Math.random()*25)+"px";
+  heart.style.animationDuration = (4+Math.random()*4)+"s";
+  document.body.appendChild(heart);
+}
+</script>
+
 </body>
 </html>
